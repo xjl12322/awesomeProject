@@ -13,7 +13,7 @@ func NewConnLimiter(cc int)*ConnLimiter  {
 		bucket:make(chan int,cc),
 	}
 }
-//token curd
+//留空机制
 func (cl *ConnLimiter) GetConn()bool  {
 	if len(cl.bucket) >=cl.concurrentConn{
 		log.Printf("Reached the rate limitation")
